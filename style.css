@@ -1,0 +1,162 @@
+@-webkit-keyframes backgroundMove {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 100%;
+  }
+}
+
+@keyframes backgroundMove {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 100%;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Bangers", cursive;
+  font-size: 2rem;
+  width: 100vw;
+  height: 100px;
+}
+
+.header__title {
+  color: black;
+}
+
+.newTask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Roboto Condensed", sans-serif;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 30px 0;
+  padding: 40px;
+  background: -webkit-gradient(linear, left top, right top, from(#da01dd), color-stop(24%, #da01dd), color-stop(42%, #6077f0), color-stop(61%, #4690f4), color-stop(76%, #da01dd), to(#da01dd));
+  background: linear-gradient(90deg, #da01dd 0%, #da01dd 24%, #6077f0 42%, #4690f4 61%, #da01dd 76%, #da01dd 100%);
+  background-size: 500%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  color: white;
+  -webkit-animation: backgroundMove 15s infinite;
+          animation: backgroundMove 15s infinite;
+}
+
+.newTask__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50vw;
+  margin-top: 20px;
+}
+
+.newTask__input {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2rem;
+  height: 60px;
+  width: 80%;
+  padding: 30px;
+  border: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.newTask__addTaskBtn {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2rem;
+  height: 60px;
+  width: 20%;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.329);
+}
+
+.newTask__addTaskBtn:hover {
+  background-color: #0fd7ff;
+}
+
+.tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50vw;
+}
+
+.tasks__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+/*# sourceMappingURL=style.css.map */
