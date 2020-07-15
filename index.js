@@ -47,7 +47,7 @@ const addNewTask = () => {
         tasksList.appendChild(newTask);
 
         const newTaskText = document.createElement('span');
-        newTaskText.classList.add('tasks__itemSpan')
+        newTaskText.classList.add('tasks__itemSpan');
         newTaskText.innerHTML = newTaskInput.value;
         newTask.appendChild(newTaskText);
 
@@ -55,9 +55,9 @@ const addNewTask = () => {
 
         addTools(newTask);
     } else if (newTaskInput.value.length > 30) {
-        tasksInfo.innerHTML = "Treść zadania może zawierać maksymalnie 30 znaków."
+        tasksInfo.innerHTML = "Treść zadania może zawierać maksymalnie 30 znaków.";
     } else {
-        tasksInfo.innerHTML = "Treść zadania nie może być pusta."
+        tasksInfo.innerHTML = "Treść zadania nie może być pusta.";
     }
 }
 
@@ -79,7 +79,7 @@ const completeTask = (e) => {
 
     e.target.closest('li').classList.toggle('tasks__doneTask');
     console.log(e.target.closest('li'));
-    e.target.closest('li').firstChild.innerHTML += ` - wykonano o ${completeTaskTime}`
+    e.target.closest('li').firstChild.innerHTML += ` - wykonano o ${completeTaskTime}`;
     e.target.closest('button').disabled = true;
     e.target.closest('button').classList.add('toolsArea__button--disabled'); a
 }
@@ -102,10 +102,12 @@ const deleteTask = (e) => {
 }
 
 const editBtnHandler = () => {
-    if (editWindowInput.value !== '') {
+    if (editWindowInput.value !== '' && editWindowInput.value.length <= 30) {
         editWindowInfo.innerText = "";
         itemToBeEdited.firstChild.innerHTML = editWindowInput.value;
         editWindow.classList.remove('editWindow--show');
+    } else if (editWindowInput.value.length > 30) {
+        editWindowInfo.innerText = "Treść zadania może zawierać maksymalnie 30 znaków.";
     } else {
         editWindowInfo.innerText = "Musisz podać jakąś wartość!";
     }
@@ -115,9 +117,25 @@ const closeEditWindow = () => {
     editWindow.classList.remove('editWindow--show');
 }
 
+const addNewTaskKeyboard = (e) => {
+    if (e.key === "Enter") {
+        addNewTask();
+    }
+}
+
+const editBtnHandlerKeyboard = (e) => {
+    if (e.key === "Enter") {
+        editBtnHandler();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     addTaskBtn.addEventListener('click', addNewTask);
     tasksList.addEventListener('click', checkFormClick);
+
     editWindowAcceptBtn.addEventListener('click', editBtnHandler);
     editWindowCancelBtn.addEventListener('click', closeEditWindow);
+
+    newTaskInput.addEventListener('keyup', addNewTaskKeyboard);
+    editWindowInput.addEventListener('keyup', editBtnHandlerKeyboard);
 })
