@@ -39,7 +39,6 @@ const addTools = (newTask) => {
 
 const addNewTask = () => {
     if (newTaskInput.value !== "" && newTaskInput.value.length <= 30) {
-        console.log(newTaskInput.value);
         tasksInfo.innerHTML = "";
 
         const newTask = document.createElement('li');
@@ -78,10 +77,13 @@ const completeTask = (e) => {
     const completeTaskTime = `${date.getHours()}:${date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}:${date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()}`
 
     e.target.closest('li').classList.toggle('tasks__doneTask');
-    console.log(e.target.closest('li'));
     e.target.closest('li').firstChild.innerHTML += ` - wykonano o ${completeTaskTime}`;
+
+    // disable buttons complete and EDIT, when task is completed
     e.target.closest('button').disabled = true;
-    e.target.closest('button').classList.add('toolsArea__button--disabled'); a
+    e.target.closest('button').classList.add('toolsArea__button--disabled');
+    e.target.closest('div').childNodes[1].disabled = true;
+    e.target.closest('div').childNodes[1].classList.add('toolsArea__button--disabled');
 }
 
 const editTask = (e) => {
