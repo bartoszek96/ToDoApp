@@ -70,11 +70,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 85vw;
   font-family: "Roboto Condensed", sans-serif;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   padding: 40px;
   background: -webkit-gradient(linear, left top, right top, from(#da01dd), color-stop(24%, #da01dd), color-stop(42%, #6077f0), color-stop(61%, #4690f4), color-stop(76%, #da01dd), to(#da01dd));
   background: linear-gradient(90deg, #da01dd 0%, #da01dd 24%, #6077f0 42%, #4690f4 61%, #da01dd 76%, #da01dd 100%);
@@ -84,20 +81,6 @@
   color: white;
   -webkit-animation: backgroundMove 15s infinite;
           animation: backgroundMove 15s infinite;
-}
-
-.newTask__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 80vw;
-  margin-top: 20px;
 }
 
 .newTask__input {
@@ -233,5 +216,6 @@
 
 .toolsArea__button--disabled {
   color: rgba(128, 128, 128, 0.603);
+  cursor: default;
 }
 /*# sourceMappingURL=style.css.map */

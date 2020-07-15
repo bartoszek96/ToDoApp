@@ -61,13 +61,14 @@ const checkFormClick = (e) => {
 }
 
 const completeTask = (e) => {
-    const completeTaskDate = new Date();
+    const date = new Date();
+    const completeTaskTime = `${date.getHours()}:${date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}:${date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()}`
 
     e.target.closest('li').classList.toggle('tasks__doneTask');
     console.log(e.target.closest('li'));
-    e.target.closest('li').firstChild.innerHTML += ` - wykonano ${completeTaskDate.toISOString().slice(0, 10)}`
+    e.target.closest('li').firstChild.innerHTML += ` - wykonano o ${completeTaskTime}`
     e.target.closest('button').disabled = true;
-    e.target.closest('button').classList.add('toolsArea__button--disabled');
+    e.target.closest('button').classList.add('toolsArea__button--disabled'); a
 }
 
 const editTask = (e) => {

@@ -40,8 +40,8 @@
 
 .newTask {
     @include flex-center(center);
+    width: 85vw;
     font-family: "Roboto Condensed", sans-serif;
-    flex-direction: column;
     padding: 40px;
     background: linear-gradient(
         90deg,
@@ -57,12 +57,6 @@
     border-top-right-radius: 30px;
     color: white;
     animation: backgroundMove 15s infinite;
-
-    &__wrapper {
-        @include flex-center(center);
-        width: 80vw;
-        margin-top: 20px;
-    }
 
     &__input {
         font-family: "Roboto Condensed", sans-serif;
@@ -157,5 +151,6 @@
 
     &__button--disabled {
         color: rgba(128, 128, 128, 0.603);
+        cursor: default;
     }
 }
