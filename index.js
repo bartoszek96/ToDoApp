@@ -102,7 +102,13 @@ const deleteTask = (e) => {
 }
 
 const editBtnHandler = () => {
-
+    if (editWindowInput.value !== '') {
+        editWindowInfo.innerText = "";
+        itemToBeEdited.firstChild.innerHTML = editWindowInput.value;
+        editWindow.classList.remove('editWindow--show');
+    } else {
+        editWindowInfo.innerText = "Musisz podać jakąś wartość!";
+    }
 }
 
 const closeEditWindow = () => {
