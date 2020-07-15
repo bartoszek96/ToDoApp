@@ -24,7 +24,7 @@ const addTools = (newTask) => {
     const editBtn = document.createElement('button');
     editBtn.classList.add('toolsArea__button');
     editBtn.classList.add('toolsArea__button--edit');
-    editBtn.innerHTML = "EDIT";
+    editBtn.innerHTML = "EDYTUJ";
 
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('toolsArea__button');
