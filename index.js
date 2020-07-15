@@ -1,4 +1,4 @@
-addTools = (newTask) => {
+const addTools = (newTask) => {
     const toolsArea = document.createElement('div');
     toolsArea.classList.add('tasks__toolsArea');
     toolsArea.classList.add('toolsArea');
@@ -24,6 +24,53 @@ addTools = (newTask) => {
     newTask.appendChild(toolsArea);
 }
 
+const addNewTask = (input, info, list) => {
+    if (input.value !== "" && input.value.length <= 30) {
+        console.log(input.value);
+        info.innerHTML = "";
+
+        const newTask = document.createElement('li');
+        newTask.classList.add('tasks__item');
+        list.appendChild(newTask);
+
+        const newTaskText = document.createElement('span');
+        newTaskText.innerHTML = input.value;
+        newTask.appendChild(newTaskText);
+
+        input.value = "";
+
+        addTools(newTask);
+    } else if (input.value.length > 30) {
+        info.innerHTML = "Treść zadania może zawierać maksymalnie 30 znaków."
+    } else {
+        info.innerHTML = "Treść zadania nie może być pusta."
+    }
+}
+
+const checkFormClick = (e) => {
+    if (e.target.closest('button').classList.contains('toolsArea__button--complete')) {
+        completeTask(e);
+    }
+    else if (e.target.closest('button').classList.contains('toolsArea__button--edit')) {
+        editTask(e);
+    }
+    else if (e.target.closest('button').classList.contains('toolsArea__button--delete')) {
+        deleteTask(e);
+    }
+}
+
+const completeTask = (e) => {
+    e.target.closest('li').classList.toggle('tasks__doneTask');
+}
+
+const editTask = (e) => {
+
+}
+
+const deleteTask = (e) => {
+
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const newTaskInput = document.querySelector('.newTask__input');
     const addTaskBtn = document.querySelector('.newTask__addTaskBtn');
@@ -31,27 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const tasksList = document.querySelector('.tasks__list');
 
     addTaskBtn.addEventListener('click', () => {
-        if (newTaskInput.value !== "" && newTaskInput.value.length <= 30) {
-            console.log(newTaskInput.value);
-            tasksInfo.innerHTML = "";
+        addNewTask(newTaskInput, tasksInfo, tasksList);
+    });
 
-            const newTask = document.createElement('li');
-            newTask.classList.add('tasks__item');
-            tasksList.appendChild(newTask);
-
-            const newTaskText = document.createElement('span');
-            newTaskText.innerHTML = newTaskInput.value;
-            newTask.appendChild(newTaskText);
-
-            newTaskInput.value = "";
-
-            addTools(newTask);
-            console.log(newTask);
-        } else if (newTaskInput.value.length > 30) {
-            tasksInfo.innerHTML = "Treść zadania może zawierać maksymalnie 30 znaków."
-        } else {
-            tasksInfo.innerHTML = "Treść zadania nie może być pusta."
-        }
-    })
-
+    tasksList.addEventListener('click', checkFormClick);
 })

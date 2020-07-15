@@ -186,6 +186,11 @@
   margin: 20px;
 }
 
+.tasks__doneTask {
+  color: rgba(128, 128, 128, 0.603);
+  text-decoration: line-through;
+}
+
 .toolsArea {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -200,7 +205,25 @@
 
 .toolsArea__button {
   cursor: pointer;
+  font-family: "Roboto Condensed", sans-serif;
   border: none;
-  height: 30px;
+  height: 40px;
+  min-width: 40px;
+  padding: 5px;
+  font-size: 1.2rem;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.toolsArea__button:hover {
+  background-color: rgba(0, 110, 255, 0.205);
+}
+
+.toolsArea__button--complete {
+  color: #00be00;
+}
+
+.toolsArea__button--delete {
+  color: #d60000;
 }
 /*# sourceMappingURL=style.css.map */
