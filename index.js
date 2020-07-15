@@ -11,7 +11,7 @@ const addTools = (newTask) => {
     const editBtn = document.createElement('button');
     editBtn.classList.add('toolsArea__button');
     editBtn.classList.add('toolsArea__button--edit');
-    editBtn.innerHTML = "Edit";
+    editBtn.innerHTML = "EDIT";
 
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('toolsArea__button');
@@ -34,6 +34,7 @@ const addNewTask = (input, info, list) => {
         list.appendChild(newTask);
 
         const newTaskText = document.createElement('span');
+        newTaskText.classList.add('tasks__itemSpan')
         newTaskText.innerHTML = input.value;
         newTask.appendChild(newTaskText);
 
@@ -60,7 +61,13 @@ const checkFormClick = (e) => {
 }
 
 const completeTask = (e) => {
+    const completeTaskDate = new Date();
+
     e.target.closest('li').classList.toggle('tasks__doneTask');
+    console.log(e.target.closest('li'));
+    e.target.closest('li').firstChild.innerHTML += ` - wykonano ${completeTaskDate.toISOString().slice(0, 10)}`
+    e.target.closest('button').disabled = true;
+    e.target.closest('button').classList.add('toolsArea__button--disabled');
 }
 
 const editTask = (e) => {
@@ -68,7 +75,14 @@ const editTask = (e) => {
 }
 
 const deleteTask = (e) => {
+    e.target.closest('li').remove();
 
+    const newTasksList = document.getElementsByClassName('tasks__item');
+    const tasksInfo = document.querySelector('.tasks__info');
+
+    if (newTasksList.length <= 0) {
+        tasksInfo.innerText = "Brak zadań do wykonania.";
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

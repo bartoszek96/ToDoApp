@@ -188,7 +188,7 @@
 
 .tasks__doneTask {
   color: rgba(128, 128, 128, 0.603);
-  text-decoration: line-through;
+  font-style: italic;
 }
 
 .toolsArea {
@@ -223,7 +223,15 @@
   color: #00be00;
 }
 
+.toolsArea__button--edit {
+  font-weight: 700;
+}
+
 .toolsArea__button--delete {
   color: #d60000;
+}
+
+.toolsArea__button--disabled {
+  color: rgba(128, 128, 128, 0.603);
 }
 /*# sourceMappingURL=style.css.map */

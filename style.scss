@@ -121,7 +121,7 @@
 
     &__doneTask {
         color: rgba(128, 128, 128, 0.603);
-        text-decoration: line-through;
+        font-style: italic;
     }
 }
 
@@ -147,7 +147,15 @@
         color: rgb(0, 190, 0);
     }
 
+    &__button--edit {
+        font-weight: 700;
+    }
+
     &__button--delete {
         color: rgb(214, 0, 0);
+    }
+
+    &__button--disabled {
+        color: rgba(128, 128, 128, 0.603);
     }
 }
