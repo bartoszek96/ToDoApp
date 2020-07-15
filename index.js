@@ -1,3 +1,16 @@
+const newTaskInput = document.querySelector('.newTask__input');
+const addTaskBtn = document.querySelector('.newTask__addTaskBtn');
+const tasksInfo = document.querySelector('.tasks__info');
+const tasksList = document.querySelector('.tasks__list');
+
+const editWindow = document.querySelector('.editWindow');
+const editWindowInfo = document.querySelector('.editWindow__info');
+const editWindowInput = document.querySelector('.editWindow__input');
+const editWindowAcceptBtn = document.querySelector('.editWindow__button--accept');
+const editWindowCancelBtn = document.querySelector('.editWindow__button--cancel');
+
+let itemToBeEdited;
+
 const addTools = (newTask) => {
     const toolsArea = document.createElement('div');
     toolsArea.classList.add('tasks__toolsArea');
@@ -24,27 +37,27 @@ const addTools = (newTask) => {
     newTask.appendChild(toolsArea);
 }
 
-const addNewTask = (input, info, list) => {
-    if (input.value !== "" && input.value.length <= 30) {
-        console.log(input.value);
-        info.innerHTML = "";
+const addNewTask = () => {
+    if (newTaskInput.value !== "" && newTaskInput.value.length <= 30) {
+        console.log(newTaskInput.value);
+        tasksInfo.innerHTML = "";
 
         const newTask = document.createElement('li');
         newTask.classList.add('tasks__item');
-        list.appendChild(newTask);
+        tasksList.appendChild(newTask);
 
         const newTaskText = document.createElement('span');
         newTaskText.classList.add('tasks__itemSpan')
-        newTaskText.innerHTML = input.value;
+        newTaskText.innerHTML = newTaskInput.value;
         newTask.appendChild(newTaskText);
 
-        input.value = "";
+        newTaskInput.value = "";
 
         addTools(newTask);
-    } else if (input.value.length > 30) {
-        info.innerHTML = "Treść zadania może zawierać maksymalnie 30 znaków."
+    } else if (newTaskInput.value.length > 30) {
+        tasksInfo.innerHTML = "Treść zadania może zawierać maksymalnie 30 znaków."
     } else {
-        info.innerHTML = "Treść zadania nie może być pusta."
+        tasksInfo.innerHTML = "Treść zadania nie może być pusta."
     }
 }
 
@@ -72,7 +85,9 @@ const completeTask = (e) => {
 }
 
 const editTask = (e) => {
-
+    editWindow.classList.add('editWindow--show');
+    itemToBeEdited = e.target.closest('li');
+    editWindowInput.value = itemToBeEdited.firstChild.innerHTML;
 }
 
 const deleteTask = (e) => {
@@ -86,15 +101,17 @@ const deleteTask = (e) => {
     }
 }
 
+const editBtnHandler = () => {
+
+}
+
+const closeEditWindow = () => {
+    editWindow.classList.remove('editWindow--show');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    const newTaskInput = document.querySelector('.newTask__input');
-    const addTaskBtn = document.querySelector('.newTask__addTaskBtn');
-    const tasksInfo = document.querySelector('.tasks__info');
-    const tasksList = document.querySelector('.tasks__list');
-
-    addTaskBtn.addEventListener('click', () => {
-        addNewTask(newTaskInput, tasksInfo, tasksList);
-    });
-
+    addTaskBtn.addEventListener('click', addNewTask);
     tasksList.addEventListener('click', checkFormClick);
+    editWindowAcceptBtn.addEventListener('click', editBtnHandler);
+    editWindowCancelBtn.addEventListener('click', closeEditWindow);
 })
