@@ -74,8 +74,8 @@
           justify-content: center;
   width: 85vw;
   padding: 40px;
-  background: -webkit-gradient(linear, left top, right top, from(#da01dd), color-stop(24%, #da01dd), color-stop(42%, #6077f0), color-stop(61%, #4690f4), color-stop(76%, #da01dd), to(#da01dd));
-  background: linear-gradient(90deg, #da01dd 0%, #da01dd 24%, #6077f0 42%, #4690f4 61%, #da01dd 76%, #da01dd 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#6077f0), color-stop(24%, #4690f4), color-stop(42%, #da01dd), color-stop(61%, #c000c4), color-stop(76%, #4690f4), to(#6077f0));
+  background: linear-gradient(90deg, #6077f0 0%, #4690f4 24%, #da01dd 42%, #c000c4 61%, #4690f4 76%, #6077f0 100%);
   background-size: 500%;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -242,8 +242,8 @@
   position: fixed;
   left: 0;
   bottom: 0;
-  background: -webkit-gradient(linear, left top, right top, from(#da01dd), color-stop(24%, #da01dd), color-stop(42%, #6077f0), color-stop(61%, #4690f4), color-stop(76%, #da01dd), to(#da01dd));
-  background: linear-gradient(90deg, #da01dd 0%, #da01dd 24%, #6077f0 42%, #4690f4 61%, #da01dd 76%, #da01dd 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#6077f0), color-stop(24%, #4690f4), color-stop(42%, #da01dd), color-stop(61%, #c000c4), color-stop(76%, #4690f4), to(#6077f0));
+  background: linear-gradient(90deg, #6077f0 0%, #4690f4 24%, #da01dd 42%, #c000c4 61%, #4690f4 76%, #6077f0 100%);
   background-size: 500%;
   -webkit-animation: backgroundMove 15s infinite;
           animation: backgroundMove 15s infinite;

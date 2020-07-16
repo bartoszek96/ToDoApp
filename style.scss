@@ -1,12 +1,12 @@
 $main-font: "Roboto Condensed", sans-serif;
 $bg-gradient: linear-gradient(
     90deg,
-    rgba(218, 1, 221, 1) 0%,
-    rgba(218, 1, 221, 1) 24%,
-    rgba(96, 119, 240, 1) 42%,
-    rgba(70, 144, 244, 1) 61%,
-    rgba(218, 1, 221, 1) 76%,
-    rgba(218, 1, 221, 1) 100%
+    rgba(96, 119, 240, 1) 0%,
+    rgba(70, 144, 244, 1) 24%,
+    rgba(218, 1, 221, 1) 42%,
+    rgb(192, 0, 196) 61%,
+    rgba(70, 144, 244, 1) 76%,
+    rgba(96, 119, 240, 1) 100%
 );
 
 @mixin flex-center($justify) {
